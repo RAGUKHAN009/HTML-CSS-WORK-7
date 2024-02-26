@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <style>
+        #timer {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="timer">00:00</div>
+
+    <script>
+        const startingTime = 5 * 60; // 
+
+
+        const x = setInterval(function () {
+    
+            
+            const minutes = Math.floor(startingTime / 60);
+            const seconds = startingTime % 60;
+
+
+            document.getElementById("timer").innerHTML = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+         
+            if (startingTime <= 0) {
+                clearInterval(x);
+                document.getElementById("timer").innerHTML = "EXPIRED";
+            }
+
+            
+            startingTime--;
+        }, 1000);
+    </script>
+
+</body>
+
+</html>
